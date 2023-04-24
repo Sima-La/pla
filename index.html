@@ -85,7 +85,7 @@
             lastTime = currentTime;
             localStorage.setItem(window.btoa(vid), currentTime.toString());
         });
-		 video.addEventListener('ended',()=>{
+		 video.addEventListener('ended',e =>{
 					if(parent.MacPlayer.PlayLinkNext!=''&& parent.MacPlayer.PlayLinkNext!='undefined'){
 					    top.location.href = parent.MacPlayer.PlayLinkNext;
 					}
