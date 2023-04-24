@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>高清HD播放器</title>
@@ -85,6 +85,11 @@
             lastTime = currentTime;
             localStorage.setItem(window.btoa(vid), currentTime.toString());
         });
+		 video.addEventListener('ended',()=>{
+					if(parent.MacPlayer.PlayLinkNext!=''&& parent.MacPlayer.PlayLinkNext!='undefined'){
+					    top.location.href = parent.MacPlayer.PlayLinkNext;
+					}
+				});
     }
 </script>
 </body>
