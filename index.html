@@ -42,7 +42,7 @@
 <body>
 <div id="container">
     <video id="player" style="display: none;" crossorigin="anonymous" webkit-playsinline="true"
-           playsinline="true" preload="auto" autoplay controls></video>
+           playsinline="true" preload="auto" autoplay="autoplay" controls></video>
 </div>
 
 <script src="static/js/player.js"></script>
@@ -53,7 +53,7 @@
         document.querySelector('#player').style.display = '';
         const vid = window.location.href.split("url=")[1];
         const player = new Plyr('#player', {
-         //   autoplay: true,
+            autoplay: true,
             controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'],
             i18n: {
                 speed: '倍速',
@@ -85,11 +85,11 @@
             lastTime = currentTime;
             localStorage.setItem(window.btoa(vid), currentTime.toString());
         });
-		 video.addEventListener('ended',e =>{
-					if(parent.MacPlayer.PlayLinkNext!=''&& parent.MacPlayer.PlayLinkNext!='undefined'){
-					    top.location.href = parent.MacPlayer.PlayLinkNext;
-					}
-				});
+	player.on('ended', function (){ 
+		if(parent.MacPlayer.PlayLinkNext!=''&& parent.MacPlayer.PlayLinkNext!='undefined'){
+		    top.location.href = parent.MacPlayer.PlayLinkNext;
+		}
+	});
     }
 </script>
 </body>
